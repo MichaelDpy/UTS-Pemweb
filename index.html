@@ -17,6 +17,7 @@
             color: #333;
             line-height: 1.6;
             padding: 20px;
+            padding-top: 90px; /* Tambahkan padding untuk navigasi yang fixed */
             transition: background 0.5s ease;
             scroll-behavior: smooth; /* Smooth scroll */
         }
@@ -44,14 +45,23 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        /* Navigasi Anchor */
+        /* Navigasi Anchor - Fixed Position */
         .nav-links {
             display: flex;
             justify-content: center;
-            background-color: #f0f0f0;
+            background-color: rgba(240, 240, 240, 0.95); /* Tambahkan transparansi */
             padding: 10px;
             gap: 5px;
             flex-wrap: wrap;
+            position: fixed; /* Ubah dari sticky ke fixed */
+            top: 0; /* Posisi di paling atas */
+            left: 0; /* Mulai dari kiri */
+            right: 0; /* Hingga ke kanan */
+            z-index: 1000; /* Tambah z-index untuk memastikan di atas konten lain */
+            border-radius: 0; /* Hapus border radius */
+            margin: 0; /* Hapus margin */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(4px); /* Efek transparan modern */
         }
         .nav-links a {
             padding: 10px 20px;
@@ -222,13 +232,16 @@
                 width: 200px;
                 height: 200px;
             }
+            body {
+                padding-top: 120px; /* Tambah padding untuk navigasi di layar kecil */
+            }
         }
         
         .theme-controls {
             position: fixed;
-            top: 20px;
+            top: 70px; /* Sesuaikan posisi dengan navigasi */
             right: 20px;
-            z-index: 1000;
+            z-index: 1001; /* Pastikan di atas navigasi */
         }
         
         .theme-btn {
@@ -263,8 +276,14 @@
             color: #ecf0f1;
         }
         
+        .dark-mode .nav-links {
+            background-color: rgba(44, 62, 80, 0.95); /* Tambah transparansi untuk mode gelap */
+            color: #ecf0f1;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
         .dark-mode .nav-links a {
-            background-color: #4a5f7a;
+            background-color: #34495e;
             color: #ecf0f1;
         }
         .dark-mode .nav-links a:hover {
@@ -291,20 +310,20 @@
         <button class="theme-btn" id="colorChangeToggle" title="Ubah Warna">🎨</button>
     </div>
     
+    <!-- Navigasi Anchor - Dipindahkan ke luar container agar fixed -->
+    <div class="nav-links">
+        <a href="#profil">Profil</a>
+        <a href="#mengenal">Mengenal HTML, CSS, JS & Tailwind</a>
+        <a href="#tatacara">Tata Cara Membuat Website</a>
+        <a href="#kesan">Kesan & Pesan</a>
+    </div>
+    
     <div class="container" id="mainContainer">
         <header>
             <div class="current-time" id="currentTime"></div>
             <h1>Profil Pribadi</h1>
             <p>Selamat datang ya</p>
         </header>
-
-        <!-- Navigasi Anchor -->
-        <div class="nav-links">
-            <a href="#profil">Profil</a>
-            <a href="#mengenal">Mengenal HTML, CSS, JS & Tailwind</a>
-            <a href="#tatacara">Tata Cara Membuat Website</a>
-            <a href="#kesan">Kesan & Pesan</a>
-        </div>
 
         <!-- Profil -->
         <section id="profil">
